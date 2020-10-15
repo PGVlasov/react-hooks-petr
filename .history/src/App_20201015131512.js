@@ -11,9 +11,9 @@ function App() {
       <Navbar />
       <div className="container pt-4">
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/prfile/:name" component={Profile} />
+          <Route path="/prfile" component={Profile} />
         </Switch>
       </div>
     </BrowserRouter>
