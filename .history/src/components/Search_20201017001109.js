@@ -11,7 +11,7 @@ export const Search = () => {
     if (value.trim()) {
       console.log("my request with ", value);
     } else {
-      show("введите данные");
+      show("1");
     }
   };
 

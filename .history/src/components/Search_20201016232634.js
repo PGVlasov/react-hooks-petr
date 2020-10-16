@@ -5,13 +5,8 @@ export const Search = () => {
   const [value, setValue] = useState("");
   const { show } = useContext(AlertContext);
   const onSubmit = (event) => {
-    if (event.key !== "Enter") {
-      return;
-    }
-    if (value.trim()) {
-      console.log("my request with ", value);
-    } else {
-      show("введите данные");
+    if (event.key === "Enter") {
+      console.log(value);
     }
   };
 

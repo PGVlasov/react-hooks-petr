@@ -8,12 +8,12 @@ export const Search = () => {
     if (event.key !== "Enter") {
       return;
     }
-    if (value.trim()) {
-      console.log("my request with ", value);
-    } else {
-      show("введите данные");
-    }
   };
+  if (value.trim()) {
+    console.log("my request with ", value);
+  } else {
+    show("1");
+  }
 
   return (
     <div className="form-group">

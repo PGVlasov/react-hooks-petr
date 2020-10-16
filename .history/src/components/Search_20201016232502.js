@@ -5,13 +5,8 @@ export const Search = () => {
   const [value, setValue] = useState("");
   const { show } = useContext(AlertContext);
   const onSubmit = (event) => {
-    if (event.key !== "Enter") {
-      return;
-    }
-    if (value.trim()) {
-      console.log("my request with ", value);
-    } else {
-      show("введите данные");
+    if (event.key === "Enter") {
+      show("this is alert");
     }
   };
 
@@ -23,8 +18,7 @@ export const Search = () => {
         placeholder="Введите ник пользователя..."
         onKeyPress={onSubmit}
         value={value}
-        onChange={(event) => setValue(event.target.value)}
-        onKeyPress={onSubmit}
+        onChange={setValue(event.target.value)}
       />
     </div>
   );
