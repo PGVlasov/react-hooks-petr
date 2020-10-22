@@ -12,7 +12,7 @@ export const Search = () => {
       return;
     }
     if (value.trim()) {
-      github.search(value.trim());
+      console.log("my request with ", value);
     } else {
       show("введите данные");
     }
