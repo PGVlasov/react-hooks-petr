@@ -89,7 +89,7 @@ export const Profile = ({ match }) => {
           </div>
         </div>
       </div>
-      <Repos repos={repos} />
+      <Repos repos={repos} />>
     </Fragment>
   );
 };
