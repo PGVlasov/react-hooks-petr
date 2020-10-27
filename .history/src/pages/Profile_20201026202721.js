@@ -9,7 +9,6 @@ export const Profile = ({ match }) => {
   useEffect(() => {
     getUser(urlName);
     getRepos(urlName);
-    // eslint-disable-next-line
   }, []);
 
   if (loading) {
@@ -26,7 +25,6 @@ export const Profile = ({ match }) => {
     login,
     html_url,
     followers,
-    following,
     public_repos,
     public_gists,
   } = user;
@@ -39,7 +37,7 @@ export const Profile = ({ match }) => {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3 text-center">
-              <img src={avatar_url} alt={name} style={{ width: "150px" }} />
+              <img src={avatar_url} alt={name} />
               <h1>{name}</h1>
               {location && <p>Местоположение: {location}</p>}
             </div>
@@ -50,46 +48,33 @@ export const Profile = ({ match }) => {
                   <p>{bio}</p>
                 </Fragment>
               )}
-              <a
-                href={html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-dark"
-              >
+              <a href={html_url} target="_blank" className="btn btn-dark">
                 Открыть профиль
               </a>
-              <ul>
+              <url>
                 {login && (
                   <li>
-                    <strong>Username: </strong> {login}
+                    <strong>Username:</strong>
+                    {login}
                   </li>
                 )}
-
                 {company && (
                   <li>
-                    <strong>Компания: </strong> {company}
+                    <strong>Company:</strong>
+                    {company}
                   </li>
                 )}
-
                 {blog && (
                   <li>
-                    <strong>Website: </strong> {blog}
+                    <strong>Website:</strong>
+                    {blog}
                   </li>
                 )}
-              </ul>
-
-              <div className="badge badge-primary">Подписчики: {followers}</div>
-              <div className="badge badge-success">Подписан: {following}</div>
-              <div className="badge badge-info">
-                Репозитории: {public_repos}
-              </div>
-              <div className="badge badge-dark">Gists: {public_gists}</div>
+              </url>
             </div>
           </div>
         </div>
       </div>
-
-      {repos.join()}
     </Fragment>
   );
 };

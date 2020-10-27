@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GitHubContext } from "../Context/github/GitHubContext";
 
 export const Profile = ({ match }) => {
-  const { getRepos, getUser, loading, user, repos } = useContext(GitHubContext);
+  const { getUser, getRepos, loading, user, repos } = useContext(GitHubContext);
   const urlName = match.params.name;
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export const Profile = ({ match }) => {
   }, []);
 
   if (loading) {
-    return <p className="text-center">Загрузка......</p>;
+    return <p className="text-center">Загрузка...</p>;
   }
 
   const {
@@ -30,11 +30,13 @@ export const Profile = ({ match }) => {
     public_repos,
     public_gists,
   } = user;
+
   return (
     <Fragment>
       <Link to="/" className="btn btn-link">
-        На главную страницу
+        На главную
       </Link>
+
       <div className="card mb-4">
         <div className="card-body">
           <div className="row">
@@ -88,8 +90,6 @@ export const Profile = ({ match }) => {
           </div>
         </div>
       </div>
-
-      {repos.join()}
     </Fragment>
   );
 };

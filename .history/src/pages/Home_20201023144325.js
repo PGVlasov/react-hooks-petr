@@ -12,10 +12,10 @@ export const Home = () => {
         {loading ? (
           <p className="text-center">...Загрузка...</p>
         ) : (
-          users.map((user) => {
+          users.map((card) => {
             return (
-              <div className="col-sm-4 mb-4" key={user.id}>
-                <Card user={user} />
+              <div className="col-sm-4 mb-4" key={card}>
+                <Card />
               </div>
             );
           })

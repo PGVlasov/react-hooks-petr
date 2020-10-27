@@ -30,6 +30,7 @@ export const Search = () => {
         onKeyPress={onSubmit}
         value={value}
         onChange={(event) => setValue(event.target.value)}
+        onKeyPress={onSubmit}
       />
     </div>
   );

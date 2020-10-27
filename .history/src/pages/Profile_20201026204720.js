@@ -1,9 +1,10 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { useContext, useEffect, Fragment } from "react";
+import { GithubContext } from "../context/github/githubContext";
 import { Link } from "react-router-dom";
-import { GitHubContext } from "../Context/github/GitHubContext";
+import { Repos } from "../components/Repos";
 
 export const Profile = ({ match }) => {
-  const { getRepos, getUser, loading, user, repos } = useContext(GitHubContext);
+  const { getUser, getRepos, loading, user, repos } = useContext(GithubContext);
   const urlName = match.params.name;
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export const Profile = ({ match }) => {
   }, []);
 
   if (loading) {
-    return <p className="text-center">Загрузка......</p>;
+    return <p className="text-center">Загрузка...</p>;
   }
 
   const {
@@ -30,11 +31,13 @@ export const Profile = ({ match }) => {
     public_repos,
     public_gists,
   } = user;
+
   return (
     <Fragment>
       <Link to="/" className="btn btn-link">
-        На главную страницу
+        На главную
       </Link>
+
       <div className="card mb-4">
         <div className="card-body">
           <div className="row">
@@ -89,7 +92,7 @@ export const Profile = ({ match }) => {
         </div>
       </div>
 
-      {repos.join()}
+      <Repos repos={repos} />
     </Fragment>
   );
 };

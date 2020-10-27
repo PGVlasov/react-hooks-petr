@@ -39,7 +39,11 @@ export const Profile = ({ match }) => {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3 text-center">
-              <img src={avatar_url} alt={name} style={{ width: "150px" }} />
+              <img
+                src={user.avatar_url}
+                alt={user.login}
+                style={{ width: "150px" }}
+              />
               <h1>{name}</h1>
               {location && <p>Местоположение: {location}</p>}
             </div>
@@ -88,8 +92,6 @@ export const Profile = ({ match }) => {
           </div>
         </div>
       </div>
-
-      {repos.join()}
     </Fragment>
   );
 };

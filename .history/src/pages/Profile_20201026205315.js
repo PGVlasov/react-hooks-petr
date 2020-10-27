@@ -12,10 +12,6 @@ export const Profile = ({ match }) => {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) {
-    return <p className="text-center">Загрузка......</p>;
-  }
-
   const {
     name,
     company,
@@ -39,7 +35,7 @@ export const Profile = ({ match }) => {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3 text-center">
-              <img src={avatar_url} alt={name} style={{ width: "150px" }} />
+              <img src={avatar_url} style={{ width: "150px" }} alt={name} />
               <h1>{name}</h1>
               {location && <p>Местоположение: {location}</p>}
             </div>
@@ -61,35 +57,33 @@ export const Profile = ({ match }) => {
               <ul>
                 {login && (
                   <li>
-                    <strong>Username: </strong> {login}
+                    <strong>Username:</strong>
+                    {login}
                   </li>
                 )}
-
                 {company && (
                   <li>
-                    <strong>Компания: </strong> {company}
+                    <strong>Company:</strong>
+                    {company}
                   </li>
                 )}
-
                 {blog && (
                   <li>
-                    <strong>Website: </strong> {blog}
+                    <strong>Website:</strong>
+                    {blog}
                   </li>
                 )}
               </ul>
-
               <div className="badge badge-primary">Подписчики: {followers}</div>
-              <div className="badge badge-success">Подписан: {following}</div>
+              <div className="badge badge-success">Подкиски: {following}</div>
               <div className="badge badge-info">
-                Репозитории: {public_repos}
+                Репрозитории: {public_repos}
               </div>
               <div className="badge badge-dark">Gists: {public_gists}</div>
             </div>
           </div>
         </div>
       </div>
-
-      {repos.join()}
     </Fragment>
   );
 };

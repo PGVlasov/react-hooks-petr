@@ -88,8 +88,6 @@ export const Profile = ({ match }) => {
           </div>
         </div>
       </div>
-
-      {repos.join()}
     </Fragment>
   );
 };
